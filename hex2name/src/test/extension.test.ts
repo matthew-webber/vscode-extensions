@@ -104,7 +104,7 @@ suite('Color Utils Test Suite', () => {
 				'#846586', // mediumorchid,
 				'#ff5733', // tomato
 				'#f5fcff', // aliceblue
-			]
+			];
 
 			const results = hex.map(color => closestColorName(color));
 

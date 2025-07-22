@@ -1,8 +1,8 @@
 {
   "name": "hex2name",
   "displayName": "Hex2Name",
-  "description": "Convert Hex Colors to their equivalent (or closest) HTML color name",
-  "version": "0.0.1",
+  "description": "Convert hex colors to their equivalent (or closest) HTML color name",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.102.0"
   },
@@ -24,8 +24,8 @@
       }
     ]
   },
-  "license": "See LICENSE.txt",
-  "homepage": "https://github.com/matthew-webber/vscode-extensions/blob/main/README.md",
+  "license": "MIT",
+  "homepage": "https://github.com/matthew-webber/vscode-extensions/blob/master/hex2name/README.md",
   "bugs": {
     "url": "https://github.com/matthew-webber/vscode-extensions/issues"
   },
