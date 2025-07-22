@@ -28,7 +28,8 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 		});
 
-		vscode.window.showInformationMessage(`Replaced ${replacements.length} hex codes.`);
+
+		vscode.window.setStatusBarMessage(`🌈Hex2Name: Replaced ${replacements.length} hex code(s)`, 5000);
 	});
 
 	context.subscriptions.push(disposable);

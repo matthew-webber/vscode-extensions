@@ -15,7 +15,7 @@
     "commands": [
       {
         "command": "extension.hexToCssName",
-        "title": "Hex → CSS Color Name"
+        "title": "Hex2Name: Convert Selection or All"
       }
     ]
   },
