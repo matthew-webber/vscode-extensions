@@ -1,7 +1,7 @@
 {
-  "name": "hex-to-css-color-name",
-  "displayName": "hex-to-css-color-name",
-  "description": "",
+  "name": "hex2name",
+  "displayName": "Hex2Name",
+  "description": "Convert Hex Colors to their equivalent (or closest) HTML color name",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.102.0"
@@ -11,13 +11,27 @@
   ],
   "main": "./dist/extension.js",
   "activationEvents": [],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#495674",
+    "theme": "dark"
+  },
   "contributes": {
     "commands": [
       {
-        "command": "extension.hexToCssName",
+        "command": "extension.hexToColorName",
         "title": "Hex2Name: Convert Selection or All"
       }
     ]
+  },
+  "license": "See LICENSE.txt",
+  "homepage": "https://github.com/matthew-webber/vscode-extensions/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/matthew-webber/vscode-extensions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthew-webber/vscode-extensions"
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

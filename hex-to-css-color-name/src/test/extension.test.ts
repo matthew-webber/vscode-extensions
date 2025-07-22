@@ -101,7 +101,9 @@ suite('Color Utils Test Suite', () => {
 				'#114591', // darkslateblue
 				'#083d90', // darkslateblue
 				'#2adc89', // mediumspringgreen
-				'#846586', // mediumorchid
+				'#846586', // mediumorchid,
+				'#ff5733', // tomato
+				'#f5fcff', // aliceblue
 			]
 
 			const results = hex.map(color => closestColorName(color));
@@ -113,7 +115,9 @@ suite('Color Utils Test Suite', () => {
 				'darkslateblue',
 				'darkslateblue',
 				'mediumspringgreen',
-				'mediumorchid'
+				'mediumorchid',
+				'tomato',
+				'aliceblue'
 			];
 
 			assert.deepStrictEqual(results.map(r => r.lab), expected);

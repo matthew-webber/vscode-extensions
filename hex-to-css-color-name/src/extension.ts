@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { findHexReplacements } from './color-utils';
 
 export function activate(context: vscode.ExtensionContext) {
-	const cmd = 'extension.hexToCssName';
+	const cmd = 'extension.hexToColorName';
 	const disposable = vscode.commands.registerCommand(cmd, async () => {
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) { return; }

@@ -7,7 +7,6 @@ import { getDeltaE00 } from 'delta-e';
 interface RGB { r: number; g: number; b: number; }
 interface XYZ { x: number; y: number; z: number; }
 interface Lab { L: number; a: number; b: number; }
-interface colorCalculation { [key: string]: string }
 
 export interface HexReplacement {
     index: number;
@@ -95,7 +94,6 @@ function hexToLab(hex: string): Lab {
     return xyzToLab(rgbToXyz(lin));
 }
 
-// 2. ΔE calculation
 function deltaE00(c1: Lab, c2: Lab): number {
     return getDeltaE00(
         { L: c1.L, A: c1.a, B: c1.b },
@@ -103,7 +101,6 @@ function deltaE00(c1: Lab, c2: Lab): number {
     );
 }
 
-// 3. Find closest CSS name using ΔE
 export function closestColorNameLab(hex: string): string {
     const targetLab = hexToLab(hex);
     let bestName = 'black';
