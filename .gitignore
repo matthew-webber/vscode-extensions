@@ -9,8 +9,9 @@ lib/
 # TypeScript cache
 *.tsbuildinfo
 
-# VSCode settings
+# VSCode dirs
 .vscode/
+.vscode-test/
 
 # Logs
 *.log

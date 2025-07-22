@@ -47,6 +47,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "css-color-names": "^1.0.1"
+    "css-color-names": "^1.0.1",
+    "delta-e": "^0.0.8"
   }
 }
