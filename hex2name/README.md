@@ -7,7 +7,7 @@ Hex2Name is a Visual Studio Code extension that converts hex color values in you
 ```css
 /* Before */
 .foo {
-  background-color: #000; /* black */
+  background-color: #f00; /* red */
   color: #fff; /* white */
   border: 1px solid #ff5733; /* tomato-ish */
   text-shadow: 1px 1px 2px #f5fcff; /* aliceblue-ish */
@@ -15,7 +15,7 @@ Hex2Name is a Visual Studio Code extension that converts hex color values in you
 
 /* After */
 .foo {
-  background-color: black;
+  background-color: red;
   color: white;
   border: 1px solid tomato;
   text-shadow: 1px 1px 2px aliceblue;
