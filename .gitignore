@@ -33,9 +33,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Optional lock files
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# Package manager state
+.npm/
 
+# Extension packages
 *.vsix

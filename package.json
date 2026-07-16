@@ -1,0 +1,16 @@
+{
+  "name": "vscode-extensions",
+  "version": "0.0.0",
+  "private": true,
+  "description": "VS Code extensions maintained by Matthew Webber.",
+  "packageManager": "npm@11.17.0",
+  "workspaces": [
+    "extensions/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "check": "npm run check --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "package:extensions": "npm run package --workspaces --if-present"
+  }
+}
