@@ -1,6 +1,5 @@
 {
   "name": "comment-formatter-js-ts",
-  "displayName": "Comment Formatter JS/TS",
   "description": "A simple VSCode extension that formats comment blocks in JavaScript.",
   "version": "0.1.0",
   "publisher": "Matt Webber",
@@ -18,20 +17,20 @@
         "title": "Hello World"
       },
       {
-        "command": "commentFormatterJS.format",
+        "command": "comment-formatter-js-ts.format",
         "title": "Format Comment Block"
       }
     ]
   },
   "configuration": {
       "properties": {
-        "commentFormatterJS.formattingStyle": {
+        "comment-formatter-js-ts.formattingStyle": {
           "type": "string",
           "default": "lengthen",
           "enum": ["lengthen", "shorten"],
           "description": "Formatting style for comment blocks: lengthen or shorten."
         },
-        "commentFormatterJS.printWidthVariance": {
+        "comment-formatter-js-ts.printWidthVariance": {
           "type": "number",
           "default": 8,
           "description": "Print-width variance for formatted comment blocks."

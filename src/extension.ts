@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-	let disposable = vscode.commands.registerCommand('commentFormatterJS.format', async () => {
+	let disposable = vscode.commands.registerCommand('comment-formatter-js-ts.format', async () => {
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			vscode.window.showInformationMessage('No active editor found.');
@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		const selectedText = editor.document.getText(selection);
-		const config = vscode.workspace.getConfiguration('commentFormatterJS');
+		const config = vscode.workspace.getConfiguration('comment-formatter-js-ts');
 		const formattingStyle = config.get<string>('formattingStyle') || 'lengthen';
 		const printWidthVariance = config.get<number>('printWidthVariance') || 8;
 
@@ -55,8 +55,8 @@ function formatCommentBlock(text: string, formattingStyle: string, printWidthVar
 	const prefix = lines[0].startsWith('//') ? '// ' : ' * ';
 
 	for (const line of lines) {
-		const words = line.trim().replace(/^\/\/|\/*|*\/|* /, '').trim().split(' ');
-	for (const word of words) {
+		const words = line.trim().replace(/^\/\/|\/\*|\*\/|\* /, '').trim().split(' ');
+		for (const word of words) {
 			if ((currentLine.length + word.length + 1) <= printWidth) {
 				currentLine += (currentLine ? ' ' : '') + word;
 			} else {
