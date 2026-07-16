@@ -1,9 +1,12 @@
 import * as path from 'path';
+import * as os from 'os';
 
 import { runTests } from '@vscode/test-electron';
 
 async function main() {
 	try {
+		const tempRoot = process.platform === 'darwin' ? '/private/tmp' : os.tmpdir();
+		const profileRoot = path.join(tempRoot, `comment-formatter-vscode-${process.pid}`);
 		// The folder containing the Extension Manifest package.json
 		// Passed to `--extensionDevelopmentPath`
 		const extensionDevelopmentPath = path.resolve(__dirname, '../../');
@@ -13,7 +16,16 @@ async function main() {
 		const extensionTestsPath = path.resolve(__dirname, './suite/index');
 
 		// Download VS Code, unzip it and run the integration test
-		await runTests({ extensionDevelopmentPath, extensionTestsPath });
+		await runTests({
+			cachePath: path.join(tempRoot, 'vscode-test-cache'),
+			extensionDevelopmentPath,
+			extensionTestsPath,
+			launchArgs: [
+				`--user-data-dir=${path.join(profileRoot, 'user-data')}`,
+				`--extensions-dir=${path.join(profileRoot, 'extensions')}`,
+				'--disable-extensions'
+			]
+		});
 	} catch (err) {
 		console.error('Failed to run tests', err);
 		process.exit(1);

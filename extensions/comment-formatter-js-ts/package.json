@@ -1,8 +1,19 @@
 {
   "name": "comment-formatter-js-ts",
+  "displayName": "Comment Formatter for JS/TS",
   "description": "A simple VSCode extension that formats comment blocks in JavaScript.",
   "version": "0.1.0",
-  "publisher": "Matt Webber",
+  "publisher": "matthew-webber",
+  "license": "MIT",
+  "homepage": "https://github.com/matthew-webber/vscode-extensions/tree/master/extensions/comment-formatter-js-ts#readme",
+  "bugs": {
+    "url": "https://github.com/matthew-webber/vscode-extensions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthew-webber/vscode-extensions.git",
+    "directory": "extensions/comment-formatter-js-ts"
+  },
   "engines": {
     "vscode": "^1.77.0"
   },
@@ -20,9 +31,8 @@
         "command": "comment-formatter-js-ts.format",
         "title": "Format Comment Block"
       }
-    ]
-  },
-  "configuration": {
+    ],
+    "configuration": {
       "properties": {
         "comment-formatter-js-ts.formattingStyle": {
           "type": "string",
@@ -36,10 +46,13 @@
           "description": "Print-width variance for formatted comment blocks."
         }
       }
-    },
+    }
+  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
+    "build": "npm run compile",
+    "check": "tsc --noEmit",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
@@ -47,13 +60,11 @@
   },
   "devDependencies": {
     "@types/vscode": "^1.77.0",
-    "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "eslint": "^8.36.0",
-    "glob": "^8.1.0",
     "mocha": "^10.2.0",
     "typescript": "^4.9.5",
     "@vscode/test-electron": "^2.3.0"

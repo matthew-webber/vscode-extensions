@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 
 suite('Selectra extension', () => {
   test('activates and registers its commands', async () => {
-    const extension = vscode.extensions.getExtension('local.selectra');
+    const extension = vscode.extensions.getExtension('matthew-webber.selectra');
     assert.ok(extension, 'The Selectra extension should be installed in the test host.');
     await extension.activate();
 

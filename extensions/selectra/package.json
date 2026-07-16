@@ -3,8 +3,17 @@
   "displayName": "Selectra",
   "description": "Search HTML-like source structurally with CSS selectors.",
   "version": "0.1.0",
-  "publisher": "local",
+  "publisher": "matthew-webber",
   "license": "MIT",
+  "homepage": "https://github.com/matthew-webber/vscode-extensions/tree/master/extensions/selectra#readme",
+  "bugs": {
+    "url": "https://github.com/matthew-webber/vscode-extensions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthew-webber/vscode-extensions.git",
+    "directory": "extensions/selectra"
+  },
   "engines": {
     "vscode": "^1.95.0"
   },
@@ -160,7 +169,7 @@
     "test:watch": "vitest",
     "test:integration:compile": "tsc -p tsconfig.integration.json",
     "test:integration": "npm run test:integration:compile && node out-test/runTest.js",
-    "package": "npm run check && npm run test && npm run build && vsce package --no-dependencies --allow-missing-repository"
+    "package": "npm run check && npm run test && npm run build && vsce package --no-dependencies"
   },
   "dependencies": {
     "css-select": "^6.0.0",
