@@ -1,0 +1,182 @@
+{
+  "name": "selectra",
+  "displayName": "Selectra",
+  "description": "Search HTML-like source structurally with CSS selectors.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "css",
+    "selector",
+    "html",
+    "search",
+    "markup"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:selectra.results",
+    "onCommand:selectra.find",
+    "onCommand:selectra.refresh",
+    "onCommand:selectra.clear",
+    "onCommand:selectra.openSettings"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "selectra.find",
+        "title": "Find by CSS Selector",
+        "category": "Selectra",
+        "icon": "$(search)"
+      },
+      {
+        "command": "selectra.refresh",
+        "title": "Refresh Results",
+        "category": "Selectra",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "selectra.clear",
+        "title": "Clear Results",
+        "category": "Selectra",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "selectra.openSettings",
+        "title": "Open Settings",
+        "category": "Selectra",
+        "icon": "$(settings-gear)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "selectra",
+          "title": "Selectra",
+          "icon": "media/selectra.svg"
+        }
+      ]
+    },
+    "views": {
+      "selectra": [
+        {
+          "id": "selectra.results",
+          "name": "Selector Results"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "selectra.results",
+        "contents": "Search HTML-like files using structural CSS selectors.\n[Find by CSS Selector](command:selectra.find)\n[Configure file globs](command:selectra.openSettings)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "selectra.find",
+          "when": "view == selectra.results",
+          "group": "navigation@1"
+        },
+        {
+          "command": "selectra.refresh",
+          "when": "view == selectra.results",
+          "group": "navigation@2"
+        },
+        {
+          "command": "selectra.clear",
+          "when": "view == selectra.results",
+          "group": "navigation@3"
+        },
+        {
+          "command": "selectra.openSettings",
+          "when": "view == selectra.results",
+          "group": "navigation@4"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Selectra",
+      "properties": {
+        "selectra.include": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/*.{html,htm,jsx,tsx,vue,svelte,astro,php,erb,ejs,hbs,twig}"
+          ],
+          "markdownDescription": "Workspace-relative glob patterns for files to scan. Any file type can be included."
+        },
+        "selectra.exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/{node_modules,.git,dist,build,out,coverage}/**"
+          ],
+          "markdownDescription": "Workspace-relative glob patterns to exclude from searches."
+        },
+        "selectra.contextLines": {
+          "type": "number",
+          "default": 2,
+          "minimum": 0,
+          "maximum": 20,
+          "description": "Lines of context shown before and after a matched node."
+        },
+        "selectra.maxPreviewLines": {
+          "type": "number",
+          "default": 15,
+          "minimum": 3,
+          "maximum": 100,
+          "description": "Maximum number of lines shown in a match preview."
+        },
+        "selectra.maxFileSizeKB": {
+          "type": "number",
+          "default": 2048,
+          "minimum": 1,
+          "description": "Files larger than this size are skipped."
+        },
+        "selectra.maxResults": {
+          "type": "number",
+          "default": 5000,
+          "minimum": 1,
+          "description": "Stop after collecting this many matches."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration:compile": "tsc -p tsconfig.integration.json",
+    "test:integration": "npm run test:integration:compile && node out-test/runTest.js",
+    "package": "npm run check && npm run test && npm run build && vsce package --no-dependencies --allow-missing-repository"
+  },
+  "dependencies": {
+    "css-select": "^6.0.0",
+    "domhandler": "^5.0.3",
+    "htmlparser2": "^10.0.0",
+    "minimatch": "^10.0.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.95.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.2.1",
+    "esbuild": "^0.24.2",
+    "mocha": "^11.0.1",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
